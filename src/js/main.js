@@ -23,7 +23,7 @@ $(function() {
 
  loadArticle = async function(filename) {
     try {
-        const response = await fetch("static/articles/"+ filename + ".txt");
+        const response = await fetch("src/static/articles/"+ filename + ".txt");
         const text = await response.text();
         console.log(text);
         return text;
