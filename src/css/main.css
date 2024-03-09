@@ -1,0 +1,34 @@
+.terminal {
+    height: 100%;
+    width: 100%;
+    background-image: radial-gradient(#110708, #0D0208);
+    color: #fbc41f;
+    text-shadow: 0 0 4px #F68A27;
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    font-smooth: never;
+    
+  font-size: 1.2em;
+  padding: 0.2em;
+  caret-color: rgb(246,138,39,0.85);
+  }
+
+  @font-face {
+    font-family: 'Press Start 2P';
+    src: url('PressStart2P-Regular.ttf') format('truetype');
+  }
+
+  .terminal,
+  .terminal-output > :not(.raw),
+  .terminal-output > :not(.raw) span:not(.fas):not(.far):not(.fa),
+  .terminal-output > :not(.raw) a,
+  .cmd,
+  .terminal-font-forcer,
+  .cmd span:not(.fas):not(.far):not(.fa) {
+      font-family: 'Press Start 2P', cursive;
+  }
+  .terminal,
+  .cmd {
+      font-size: 12px;
+  }
