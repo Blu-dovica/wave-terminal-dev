@@ -24,12 +24,14 @@ $(function() {
  loadArticle = async function(filename) {
     try {
         const response = await fetch("src/static/articles/"+ filename + ".txt");
-        const text = await response.text();
-        console.log(text);
-        return text;
+        if (response.ok) {
+            const text = await response.text();
+            console.log(text);
+            return text;
+        }
     } catch (e) {
         console.log(e)
-        return "File not found."
     }
+    return "File not found."
  }
  
