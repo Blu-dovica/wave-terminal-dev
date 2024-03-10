@@ -1,12 +1,12 @@
 
-import {listArticles, getArticle, getPicture} from "./list.js";
+import {listArticles, getArticle, getPicture, commands} from "./list.js";
 
 $(function() {
     $('body').terminal({
         list: async function() {
             var l = listArticles()
             for (var a in l) {
-                await innerType(this, l[a])
+                await innerType(this, "- " + l[a])
             }
             if (l.length == 0) {
                 await innerType(this, "No articles available.")
@@ -33,12 +33,20 @@ $(function() {
             }
             loadPicture(this, p)
         },
+        help: async function() {
+            await printHelp(this)
+        },
        ciao: function() {
         this.echo("Ciao Cosmo! Ti amo <3", { typing: true, delay: 50 })
        },
     },
     {
-        greetings: "Hello",
+        greetings: " ",
+        onInit: async function() {
+            let text = await load("./src/static/revelations.txt")
+            await this.echo(text, { typing: true, delay: 2 })
+            await printHelp(this)
+        },
         wrap: true
     });
  });
@@ -59,7 +67,7 @@ $(function() {
 
  async function loadPicture(terminal, p) {
     const response = await load(p.getFilePath());
-    return type(terminal, response)
+    return type(terminal, response, false)
     .then(
         () => {
             console.log("type done")
@@ -90,10 +98,8 @@ $(function() {
 
  async function type(terminal, text, paginate = true) {
     var split = text.split('\n')
-    console.log(split)
     var lastWasEmpty = false;
     for (var i in split) {
-        console.log("Split["+i+"]", split[i])
         var isEmpty = !split[i] || split[i].trim().length == 0
         if (!isEmpty) {
             await innerType(terminal, split[i].trim())
@@ -116,7 +122,6 @@ $(function() {
  
 
  async function load (file) {
-    console.log("Loading file", file)
     try {
         const response = await fetch(file);
         if (response.ok) {
@@ -128,4 +133,11 @@ $(function() {
         console.log(e)
     }
     return ["File not found."]
+ }
+
+ async function printHelp(terminal) {
+    await innerType(terminal, "Available commands")
+    for (var cmd in commands) {
+        await innerType(terminal, "- " + commands[cmd].print())
+    }
  }

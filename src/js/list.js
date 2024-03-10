@@ -49,6 +49,20 @@ export class Article {
 
 }
 
+export class Command {
+    command
+    description
+
+    constructor(command, description) {
+        this.command = command
+        this.description = description
+    }
+
+    print() {
+        return this.command + " : " + this.description 
+    }
+}
+
 export const pictures = {
     picture_1: new Picture("pTest1.txt", "picture_1"),
     picture_2: new Picture("pTest2.txt", "picture_2"),
@@ -77,4 +91,12 @@ export function getArticle(key) {
 
 export function getPicture(key) {
     return pictures[key]
+}
+
+
+export const commands = {
+    list: new Command("list", "Show the list of available articles."),
+    article: new Command("article [article name]", "Show the content of the article named [article name]."),
+    picture: new Command("picture [picture name]", "Display the picture named [picture name]."),
+    help: new Command("help", "Show these info."),
 }
