@@ -9,7 +9,7 @@ export class Picture {
     }
 
     getFilePath = () => {
-        return "/src/static/pictures/"+this.file
+        return "./src/static/pictures/"+this.file
     }
 
     getName = () => {
@@ -29,7 +29,7 @@ export class Article {
     }
 
     getFilePath = () => {
-        return "/src/static/articles/"+this.file
+        return "./src/static/articles/"+this.file
     }
 
     getPictures = () => {
