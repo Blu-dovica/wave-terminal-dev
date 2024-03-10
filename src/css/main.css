@@ -9,9 +9,13 @@
     cursor: default;
     font-smooth: never;
     
-  font-size: 1.2em;
-  padding: 0.2em;
-  caret-color: rgb(246,138,39,0.85);
+    font-size: 1.2em;
+    padding: 0.2em;
+    caret-color: rgb(246,138,39,0.85);
+  }
+
+  div, span {
+    color: #fbc41f!important;
   }
 
   @font-face {
@@ -27,8 +31,21 @@
   .terminal-font-forcer,
   .cmd span:not(.fas):not(.far):not(.fa) {
       font-family: 'Press Start 2P', cursive;
+      text-shadow: 0 0 4px #F68A27;
   }
   .terminal,
   .cmd {
       font-size: 12px;
+  } 
+
+  .fgbg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("./bg.png");
+    background-blend-mode: multiply;
+    z-index: 9999;
+    pointer-events: none;
   }

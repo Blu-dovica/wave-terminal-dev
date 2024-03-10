@@ -44,7 +44,7 @@ $(function() {
         greetings: " ",
         onInit: async function() {
             let text = await load("./src/static/revelations.txt")
-            await this.echo(text, { typing: true, delay: 2 })
+            await this.echo(text, { typing: true, delay: 2})
             await printHelp(this)
         },
         wrap: true
@@ -56,7 +56,6 @@ $(function() {
     return type(terminal, response)
     .then(
         () => {
-            console.log("type done")
             return a;
         }
     )
@@ -70,7 +69,6 @@ $(function() {
     return type(terminal, response, false)
     .then(
         () => {
-            console.log("type done")
             return a;
         }
     )
@@ -99,6 +97,7 @@ $(function() {
  async function type(terminal, text, paginate = true) {
     var split = text.split('\n')
     var lastWasEmpty = false;
+    if (split && split.length > 0) terminal.echo(" ")
     for (var i in split) {
         var isEmpty = !split[i] || split[i].trim().length == 0
         if (!isEmpty) {
@@ -114,10 +113,11 @@ $(function() {
         terminal.resize();
         lastWasEmpty = isEmpty;
     }
+    if (split && split.length > 0) terminal.echo(" ")
  }
 
  function innerType (terminal, text) {
-    return terminal.echo(text, { typing: true, delay: 10 })
+    return terminal.echo(text, { typing: true, delay: 10, color: "#fbc41f" })
  }
  
 
