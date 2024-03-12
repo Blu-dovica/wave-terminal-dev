@@ -85,7 +85,7 @@ $(function() {
         await innerType(terminal, "Attached pictures:")
         var pics = article.getPictures();
         for (var p in pics) {
-            await innerType(terminal, "- " + pics[p].getName() )
+            await innerType(terminal, "- " + p)
         }
         await innerType(terminal, "Type: 'picture [picture name]' to print picture")
 
