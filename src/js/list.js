@@ -70,15 +70,15 @@ export class Command {
 }
 
 export const pictures = {
-    //picture_1: new Picture("pTest1.txt", "picture_1"),
+    dade_fig_1: new Picture("dade_fig_1.txt", "dade_fig_1"),
+    dade_fig_2: new Picture("dade_fig_2.txt", "dade_fig_2"),
     //picture_2: new Picture("pTest2.txt", "picture_2"),
 }
 
 export const articles = {
     //test: new Article("test.txt", [pictures.picture_1, pictures.picture_2]),
-    damon: new Article("damon.txt", "Damon S. Edington", []),
-    ombre_dade: new Article("ombre_dade.txt", "Ombre su Dade City", []),
-    ombre_sarasota: new Article("ombre_sarasota.txt", "Ombre su Sarasota: Il Terremoto Dimenticato", []),
+    ombra_dade: new Article("ombra_dade.txt", "Ombra su Dade City", [pictures.dade_1, pictures.dade_2]),
+    terremoto_dimenticato: new Article("terremoto_dimenticato.txt", "Il Terremoto Dimenticato", []),
 }
 
 export function listArticles() {

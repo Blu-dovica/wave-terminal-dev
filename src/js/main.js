@@ -117,7 +117,7 @@ $(function() {
  }
 
  function innerType (terminal, text) {
-    return terminal.echo(text, { typing: true, delay: 10, color: "#fbc41f" })
+    return terminal.echo(text, { typing: true, delay: 10 })
  }
  
 
