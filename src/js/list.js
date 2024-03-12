@@ -77,7 +77,7 @@ export const pictures = {
 
 export const articles = {
     //test: new Article("test.txt", [pictures.picture_1, pictures.picture_2]),
-    ombra_dade: new Article("ombra_dade.txt", "Ombra su Dade City", [pictures.dade_1, pictures.dade_2]),
+    ombra_dade: new Article("ombra_dade.txt", "Ombra su Dade City", [pictures.dade_fig_1, pictures.dade_fig_2]),
     terremoto_dimenticato: new Article("terremoto_dimenticato.txt", "Il Terremoto Dimenticato", []),
 }
 
